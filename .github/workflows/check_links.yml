@@ -1,4 +1,4 @@
-name: Check README Links
+name: Check Links
 
 on:
   push:
@@ -18,6 +18,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Check links in the README file
-        uses: lycheeverse/lychee-action@v1.0.8
+        uses: peter-evans/link-checker@v1
         with:
           args: ./README.md
