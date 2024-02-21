@@ -1,4 +1,4 @@
-name: Check Links
+name: Check README Links
 
 on:
   push:
@@ -7,6 +7,17 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   linkChecker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Check links in the README file
+        uses: lycheeverse/lychee-action@v1.0.8
+        with:
+          args: ./README.md
